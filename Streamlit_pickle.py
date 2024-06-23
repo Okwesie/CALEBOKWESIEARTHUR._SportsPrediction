@@ -26,7 +26,7 @@ else:
     
     # Define the prediction function
 def predict_player_rating(features):
-    prediction = model.predict(np.array(features).reshape(1, -1))
+    prediction = pickle.load(file).predict(np.array(features).reshape(1, -1))
     return prediction[0]
 
 # Streamlit app interface
