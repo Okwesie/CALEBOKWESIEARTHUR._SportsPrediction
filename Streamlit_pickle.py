@@ -25,7 +25,7 @@ else:
     
     
     # Define the prediction function
-def predict_player_rating(features):
+def predict_player_rating(features,model):
     prediction = model.predict(np.array(features).reshape(1, -1))
     return prediction[0]
 
@@ -61,5 +61,5 @@ for feature in features_list:
     input_data.append(value)
 
 if st.button('Predict Rating'):
-    rating = predict_player_rating(input_data)
+    rating = predict_player_rating(input_data,model)
     st.write(f'Predicted Player Rating: {rating}')
