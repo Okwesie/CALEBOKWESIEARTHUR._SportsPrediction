@@ -6,9 +6,8 @@ import pickle as pkl
 
 
 # Load the trained model
-with open('https://github.com/Okwesie/CALEBOKWESIEARTHUR._SportsPrediction/blob/main/DecisionTreeRegressorV2.actual.pkl', 'rb') as file:
-    model = pkl.load(file)
-    
+file_path = "DecisionTreeRegressor.joblib"
+model = joblib.load(file_path)
 #Define the prediction function
 def predict_player_rating(features):
     prediction = model.predict(np.array(features).reshape(1, -1))
