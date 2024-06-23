@@ -3,4 +3,3 @@ xgboost
 pandas
 joblib
 streamlit
-pickle
