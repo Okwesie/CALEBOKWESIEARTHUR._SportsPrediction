@@ -7,7 +7,19 @@ import pickle as pkl
 
 # Load the trained model
 file_path = "DecisionTreeRegressor.joblib"
-model = joblib.load(file_path)
+
+try:
+    model = joblib.load(file_path)
+except FileNotFoundError:
+    st.error(f"File {file_path} not found.")
+    st.stop()
+except joblib.externals.loky.process_executor.TerminatedWorkerError:
+    st.error("Error loading the model. The file might be corrupted or incompatible.")
+    st.stop()
+except Exception as e:
+    st.error(f"An unexpected error occurred: {e}")
+    st.stop()
+    
 #Define the prediction function
 def predict_player_rating(features):
     prediction = model.predict(np.array(features).reshape(1, -1))
