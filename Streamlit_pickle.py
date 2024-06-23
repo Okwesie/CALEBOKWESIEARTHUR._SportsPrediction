@@ -1,11 +1,28 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
 import pickle
 
-# Load the trained model
-with open('DecisionTreeRegressorV2.actual.pkl', 'rb') as file:
-    model = pickle.load(file)
+# Streamlit app interface
+st.title('Player Rating Predictor')
+
+# Create the file uploader widget
+uploaded_file = st.file_uploader("Upload DecisionTreeRegressorV2.actual.pkl", type="pickle")
+
+# Check if a file has been uploaded
+if uploaded_file is not None:
+    try:
+        # Load the model from the uploaded file
+        with open(uploaded_file, 'rb') as file:
+            model = pickle.load(file)
+        st.success("Model loaded successfully!")
+        
+    except pickle.UnpicklingError:
+        st.error("Error in unpickling the file. The file might be corrupted.")
+    except Exception as e:
+        st.error(f"An unexpected error occurred: {e}")
+else:
+    st.warning('Please upload a .pkl file.')
+    
     
     # Define the prediction function
 def predict_player_rating(features):
