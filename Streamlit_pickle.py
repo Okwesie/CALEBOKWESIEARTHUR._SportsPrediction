@@ -6,7 +6,7 @@ import pickle
 st.title('Player Rating Predictor')
 
 # Create the file uploader widget
-uploaded_file = st.file_uploader("Upload DecisionTreeRegressor.pkl", type="pkl")
+uploaded_file = st.file_uploader("Upload DecisionTreeRegressorV2.actual.pkl", type="pkl")
 
 # Check if a file has been uploaded
 if uploaded_file is not None:
