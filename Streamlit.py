@@ -6,7 +6,7 @@ import pickle as pkl
 
 
 # Load the trained model
-with open('DecisionTreeRegressorV2.actual.pkl', 'rb') as file:
+with open('https://github.com/Okwesie/CALEBOKWESIEARTHUR._SportsPrediction/blob/main/DecisionTreeRegressorV2.actual.pkl', 'rb') as file:
     model = pkl.load(file)
     
 #Define the prediction function
